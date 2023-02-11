@@ -1,0 +1,84 @@
+*{
+  margin: 0;
+}
+.navbar .navbar-nav .nav-link {
+    color: #000000;
+    font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: #f3eaea;
+}
+@media only screen and (max-width: 960px) {
+  .sm-icons .nav-item {
+    padding-right: 1em;
+  }
+}
+.logo{
+  width: 50px;
+}
+.bg{
+  width: 100%;
+  height: 50vh;
+  background-image:    url(images/img-1.jfif);
+  background-size:     cover;                    
+  background-repeat:   no-repeat;
+  background-position: center center; 
+  filter:brightness(40%);
+}
+.content{
+  color:white;
+  position:absolute;
+  top: 20%;
+  left: 10%;
+}
+.dull{
+  color: rgb(139, 139, 140);
+}
+.btn{
+  margin-top: 6%;
+}
+.second{
+  background-color: rgb(225, 223, 221);
+  padding: 4% 8%;
+}
+.parts{
+}
+.part1 img{
+  width:100%;
+  height: 100%;
+}
+.part2 h2{
+  font-weight: 500;
+}
+.fourth{
+  background-color: rgb(225, 223, 221);
+}
+.im{
+  background-image: url(images/img-6.jpg);
+  height: 30vw;
+}
+.box{
+  width:60%;
+  margin-top: -3%;
+}
+.cont{
+  background-color: rgb(223, 242, 242);
+}
+.mm{
+  margin-top: 10%;
+}
+.i{
+  height: 50px;
+  width: 50px;
+  border-radius: 50% ;
+}
+.i img{
+  border-radius: 50%;
+}
+.ima{
+  margin-top: -10%;
+}
+h6{
+  color: rgb(183, 35, 35);
+}
+
