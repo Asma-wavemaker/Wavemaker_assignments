@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 
 interface Nominee{
@@ -10,10 +8,19 @@ class NomineeClass implements Nominee{
     private String nomineeName;
     private int nomineeId;
     private String nomineeParty;
-     NomineeClass(String nomineeParty, String nomineeName,int nomineeId){
+     public void setNomineeDetails(String nomineeParty, String nomineeName,int nomineeId){
         this.nomineeName=nomineeName;
         this.nomineeId=nomineeId;
         this.nomineeParty=nomineeParty;
+    }
+    public String getNomineeName(){
+        return nomineeName;
+    }
+    public int getNomineeId(){
+        return nomineeId;
+    }
+    public String getNomineeParty(){
+        return nomineeParty;
     }
 
     public void displayNominees(){
@@ -22,42 +29,52 @@ class NomineeClass implements Nominee{
 
 }
 interface ElectionWinner{
-    void winner();
+
+    String getWinner();
 }
-class Winner{
+class Winner implements ElectionWinner{
     String winner;
-    Winner(String winner){
+    void setWinner(String winner){
         this.winner = winner;
     }
-    void displayWinner(){
-        System.out.println("-----The winner of the Elections:"+ this.winner+"-----");
+    public String getWinner(){
+        return winner;
     }
+    
 }
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n;
-        ArrayList<NomineeClass> nomineeObjects = new ArrayList<>();
-        nomineeObjects.add(new NomineeClass ("TRS","KCR",12) );
-        nomineeObjects.add(new NomineeClass ("Congress","Rahul Gandhi",13) );
-        nomineeObjects.add(new NomineeClass ("BJP","Narendra Modi",14) );
-        nomineeObjects.add(new NomineeClass ("AAP","Arvind kejarival",15) );
-
-        System.out.print("Enter the users for voting:");
-        n= sc.nextInt();
-
+        System.out.println("Parties available to stand in Elections");
+        ArrayList<String> availableParties = new ArrayList<>();
+        availableParties.add("TRS");
+        availableParties.add("Congress");
+        availableParties.add("BJP");
+        availableParties.add("AAP");
 
 
         HashMap<Integer,String> nominees = new HashMap<>();
-        nominees.put(12,"TRS");
-        nominees.put(13,"Congress");
-        nominees.put(14,"BJP");
-        nominees.put(15,"AAP");
+
+            NomineeClass n1 = new NomineeClass();
+            n1.setNomineeDetails("TRS","KCR",12);
+            nominees.put(n1.getNomineeId(),n1.getNomineeName());
+            NomineeClass n2 = new NomineeClass();
+            n2.setNomineeDetails("Congress","Rahul Gandhi",13);
+            nominees.put(n2.getNomineeId(),n2.getNomineeName());
+            NomineeClass n3 = new NomineeClass();
+            n3.setNomineeDetails("BJP","Narendra Modi",14);
+            nominees.put(n3.getNomineeId(),n3.getNomineeName());
+            NomineeClass n4 = new NomineeClass();
+            n4.setNomineeDetails("AAP","Arvind",14);
+            nominees.put(n4.getNomineeId(),n4.getNomineeName());
 
 
-        for(NomineeClass main: nomineeObjects ){
-            main.displayNominees();
-        }
+
+
+        System.out.println(nominees);
+        System.out.print("Enter the users for voting:");
+        int no= sc.nextInt();
+
 
         HashMap<Integer, String> votedDetails = new HashMap<>();
         int counterTRS = 0;
@@ -71,7 +88,7 @@ public class Main {
 
         HashMap<Integer, Integer> voteCountDetails = new HashMap<>();
 
-        for(int i = 0 ; i < n ; i++) {
+        for(int i = 0 ; i < no ; i++) {
             System.out.print("Enter the user name:");
             userName = sc.next();
             System.out.print("Enter the user id:");
@@ -146,9 +163,13 @@ public class Main {
         if(count>1)
             System.out.println("--It is a draw!--");
         else{
-            Winner w = new Winner(nominees.get(winnerId));
-            w.displayWinner();
+            Winner w = new Winner();
+            w.setWinner(nominees.get(winnerId));
+            String win=w.getWinner();
+            System.out.println("-----The winner of the Elections:"+ win+"-----");
         }
+        
+
 
         System.out.println("VOTERS LIST:");
         for (HashMap.Entry h: voteCountDetails.entrySet()) {
