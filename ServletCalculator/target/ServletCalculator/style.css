@@ -1,0 +1,41 @@
+.heading{
+    text-align: center;
+    font-size: larger;
+    color: rgb(0, 180, 120);
+}
+.cal{
+    padding: 3%;
+    width: 70%;
+    margin: auto;
+    background-color: antiquewhite;
+}
+.inputvalue{
+    display: flex;
+    justify-content: space-around;
+}
+.inpfield{
+    height: 30px;
+    margin: auto;
+}
+.choicestmt{
+   text-align: center;
+}
+.choices{
+    padding: 2%;
+    width: max-content;
+    display: block;
+    margin: auto;
+    background-color: rgb(188, 213, 213);
+
+}
+.btns{
+    width: 30%;
+    margin: auto;
+    margin-top: 2%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+}
+.bt{
+    background-color: antiquewhite;
+}
