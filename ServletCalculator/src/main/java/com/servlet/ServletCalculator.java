@@ -19,14 +19,20 @@ public class ServletCalculator extends HttpServlet {
         double n2 = Double.parseDouble(request.getParameter("txtN2"));
         double result =0;
         String opr=request.getParameter("opr");
-        if(opr.equals("+")) result=n1+n2;
-        if(opr.equals("-")) result=n1-n2;
-        if(opr.equals("*")) result=n1*n2;
-        if(opr.equals("/")) result=n1/n2;
-        if(opr.equals("%")) result=n1%n2;
+        if(opr.equals("+"))
+            result=n1+n2;
+        if(opr.equals("-"))
+            result=n1-n2;
+        if(opr.equals("*"))
+            result=n1*n2;
+        if(opr.equals("/"))
+            result=n1/n2;
+        if(opr.equals("%"))
+            result=n1%n2;
 
-        out.println("<h1> Result = "+result);
+        out.println("<div style=\"width:300px;height:400px;margin:auto;text-align:center;background-color: rgb(188, 213, 213);display: flex;align-items:center\"> ");
+        out.println("<h1 style=\"padding:20px;color:blue;margin:auto;background-color: antiquewhite;\">"+n1+opr+n2+"<br> Answer = "+result);
+        out.println("</div>");
         out.println("</body></html>");
     }
-
 }
