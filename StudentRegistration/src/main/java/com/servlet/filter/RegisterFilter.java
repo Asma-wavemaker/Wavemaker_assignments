@@ -29,7 +29,7 @@ public class RegisterFilter implements Filter{
 
         CheckRegistered cr = new CheckRegistered();
         int val = cr.checkExists(id);
-        if (password.length()>8 & val<=0){
+        if (password.length()>8 & val>=0){
             InsertStudDetails isd = new InsertStudDetails();
             isd.insertrow(id,name,gender);
             out.println("<h2>Registration Successful!!</h2>");
