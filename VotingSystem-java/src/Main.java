@@ -52,6 +52,27 @@ public class Main {
         availableParties.add("BJP");
         availableParties.add("AAP");
 
+        HashMap<Integer,String> nominees = new HashMap<>();
+
+            NomineeClass n1 = new NomineeClass();
+            n1.setNomineeDetails("TRS","KCR",12);
+            nominees.put(n1.getNomineeId(),n1.getNomineeName());
+            NomineeClass n2 = new NomineeClass();
+            n2.setNomineeDetails("Congress","Rahul Gandhi",13);
+            nominees.put(n2.getNomineeId(),n2.getNomineeName());
+            NomineeClass n3 = new NomineeClass();
+            n3.setNomineeDetails("BJP","Narendra Modi",14);
+            nominees.put(n3.getNomineeId(),n3.getNomineeName());
+            NomineeClass n4 = new NomineeClass();
+            n4.setNomineeDetails("AAP","Arvind",14);
+            nominees.put(n4.getNomineeId(),n4.getNomineeName());
+
+
+        System.out.println(nominees);
+        System.out.print("Enter the users for voting:");
+        int no= sc.nextInt();
+=======
+
 
         HashMap<Integer,String> nominees = new HashMap<>();
 
@@ -76,24 +97,6 @@ public class Main {
         int no= sc.nextInt();
 
 
-        //nomineeObjects.add(new NomineeClass () );
-//        nomineeObjects.add(new NomineeClass ("Congress","Rahul Gandhi",13) );
-//        nomineeObjects.add(new NomineeClass ("BJP","Narendra Modi",14) );
-//        nomineeObjects.add(new NomineeClass ("AAP","Arvind kejarival",15) );
-//        nominees.put(12,"TRS");
-//        nominees.put(13,"Congress");
-//        nominees.put(14,"BJP");
-//        nominees.put(15,"AAP");
-//        HashMap<NomineeClass,NomineeClass> nomines = new HashMap<>();
-//        for(int i = 0; i<nomineeObjects.size();i++){
-//            nomines.put(nomineeObjects.get(i),nomineeObjects.get(i));
-//
-//        }
-//        System.out.println(nomines.toString());
-//
-//        for(NomineeClass main: nomineeObjects ){
-//            main.displayNominees();
-//        }
 
         HashMap<Integer, String> votedDetails = new HashMap<>();
         int counterTRS = 0;
@@ -187,6 +190,8 @@ public class Main {
             String win=w.getWinner();
             System.out.println("-----The winner of the Elections:"+ win+"-----");
         }
+        
+
 
 
 
