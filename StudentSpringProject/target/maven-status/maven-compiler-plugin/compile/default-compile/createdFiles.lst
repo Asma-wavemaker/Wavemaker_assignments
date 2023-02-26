@@ -1,8 +1,0 @@
-com\controller\PerformanceController.class
-com\services\StudentService.class
-com\model\Student.class
-com\services\StudentServiceImpl.class
-com\services\PerformanceService.class
-com\controller\StudentController.class
-com\services\PerformanceServiceImpl.class
-com\model\Performance.class
