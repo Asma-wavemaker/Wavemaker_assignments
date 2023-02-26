@@ -35,5 +35,4 @@ public class ServletCalculator extends HttpServlet {
         out.println("</div>");
         out.println("</body></html>");
     }
-
 }

@@ -40,7 +40,7 @@ class Winner implements ElectionWinner{
     public String getWinner(){
         return winner;
     }
-    
+
 }
 public class Main {
     public static void main(String[] args) {
@@ -51,7 +51,6 @@ public class Main {
         availableParties.add("Congress");
         availableParties.add("BJP");
         availableParties.add("AAP");
-
 
         HashMap<Integer,String> nominees = new HashMap<>();
 
@@ -72,6 +71,32 @@ public class Main {
         System.out.println(nominees);
         System.out.print("Enter the users for voting:");
         int no= sc.nextInt();
+=======
+
+
+        HashMap<Integer,String> nominees = new HashMap<>();
+
+            NomineeClass n1 = new NomineeClass();
+            n1.setNomineeDetails("TRS","KCR",12);
+            nominees.put(n1.getNomineeId(),n1.getNomineeName());
+            NomineeClass n2 = new NomineeClass();
+            n2.setNomineeDetails("Congress","Rahul Gandhi",13);
+            nominees.put(n2.getNomineeId(),n2.getNomineeName());
+            NomineeClass n3 = new NomineeClass();
+            n3.setNomineeDetails("BJP","Narendra Modi",14);
+            nominees.put(n3.getNomineeId(),n3.getNomineeName());
+            NomineeClass n4 = new NomineeClass();
+            n4.setNomineeDetails("AAP","Arvind",14);
+            nominees.put(n4.getNomineeId(),n4.getNomineeName());
+
+
+
+
+        System.out.println(nominees);
+        System.out.print("Enter the users for voting:");
+        int no= sc.nextInt();
+
+
 
         HashMap<Integer, String> votedDetails = new HashMap<>();
         int counterTRS = 0;
@@ -166,6 +191,8 @@ public class Main {
             System.out.println("-----The winner of the Elections:"+ win+"-----");
         }
         
+
+
 
 
         System.out.println("VOTERS LIST:");
