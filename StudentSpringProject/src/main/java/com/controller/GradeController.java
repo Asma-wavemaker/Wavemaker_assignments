@@ -19,8 +19,8 @@ public class GradeController {
     public static final Logger logger = LoggerFactory.getLogger(GradeController.class);
     @GetMapping
     public List<Grade> getGrade(){
-        logger.info("Student Performance");
-        return GradeService.getGrade();
+        logger.info("Student Grade");
+        return gradeService.getGrade();
     }
 
 }

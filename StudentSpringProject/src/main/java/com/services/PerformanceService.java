@@ -1,8 +1,6 @@
 package com.services;
 
 import com.model.Performance;
-import com.model.Student;
-
 import java.util.List;
 
 public interface PerformanceService {

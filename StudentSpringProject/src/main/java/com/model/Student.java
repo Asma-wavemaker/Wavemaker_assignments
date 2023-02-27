@@ -1,9 +1,7 @@
 package com.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -20,7 +18,9 @@ public class Student {
     @Column(name = "attendence")
     private int attendence;
 
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stud_id")
+    private Performance performance;
     public int getStud_id() {
         return stud_id;
     }
@@ -51,5 +51,13 @@ public class Student {
 
     public void setAttendence(int attendence) {
         this.attendence = attendence;
+    }
+
+    public Performance getPerformance() {
+        return performance;
+    }
+
+    public void setPerformance(Performance performance) {
+        this.performance = performance;
     }
 }

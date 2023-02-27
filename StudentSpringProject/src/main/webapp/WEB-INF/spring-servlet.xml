@@ -28,6 +28,7 @@
             <list>
                 <value>com.model.Student</value>
                 <value>com.model.Performance</value>
+                <value>com.model.Grade</value>
             </list>
         </property>
         <property name="hibernateProperties" >
