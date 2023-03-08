@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+nav ul li{
+    list-style: none;
+    text-decoration: none;
+}
+nav{
+    height: 80px;
+    width: 100%;
+}
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    padding: 0 100px;
+    line-height: 80px;
+}
+nav ul{
+    float: right;
+    margin-right: 60px;
+}
+nav li{
+    display: inline-block;
+    line-height: 80px;
+    margin-right: 40px;
+}
+.home{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.left{
+    width: 35%;
+    height: 95%;
+    background-color: antiquewhite;
+    margin-top: -5%;
+    border-radius: 0 0 10px 10px;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left h2{
+    font-weight: bold;
+}
+.right{
+    width: 45%;
+}
+.right img{
+    width: 100%;
+}
+.userlogform,.usersignupform{
+    padding: 50px 20px;
+    width: 26%;
+    margin: auto;
+    background-color: rgb(252, 247, 241);
+    margin-bottom: 2%;
+    border-radius: 15px;
+}
+.userlogform,.usersignupform h2{
+    text-align: center;
+}
+.userlogform h2{
+    margin-bottom: 4%;
+}
+.userlogform h4{
+    font-weight: 300;
+    margin: 5% 13%;
+}
+.submit{
+    padding: 6px 21px;
+    width: 50%;
+    border: none;
+    background-color:rgb(230, 175, 105);
+    border-radius: 2px;
+    margin-top: 5%;
+    cursor: pointer;
+    font-weight: 800;
+}
+.sub{
+    text-align: center;
+}
+.field{
+    border: 2px solid rgb(231, 230, 230);
+    padding: 11px 17px;
+    margin:2% 0%;
+    width: 80%;
+    border-radius: 7px;
+}
+
+@media screen and (max-width: 1230px){
+    body{
+        background-color: black;
+    }
+    .userlogform,.usersignupform{
+        width:34%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    body{
+        background-color: antiquewhite;
+    }
+    .userlogform,.usersignupform{
+        width: 42%;
+    }
+}
+@media screen and (max-width: 650px){
+    body{
+        background-color: aquamarine;
+    }
+    .userlogform,.usersignupform{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 480px){
+    body{
+        background-color: rgb(88, 110, 103);
+    }
+    .userlogform,.usersignupform{
+        width: 70%;
+    }
+}
+
+
+
+
+
+
+
+

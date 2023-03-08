@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <nav class="nav">
+            <label class="logo"><a href="#">Logo</a> </label>
+            <ul>
+                <li><a href="user.html"> Login/SignUp<i class="fa fa-fw fa-user"></i></a></li>
+                <!-- <li><a href="admin.html">  <i class="fa fa-user" ></i></a></li> -->
+            </ul>
+        </nav>
+        <div class="home">
+            <div class="left">
+                <h2>Fastest Leave approvals</h2>
+            </div>
+            <div class="right">
+                <img src="images/img2.png" alt="">
+            </div>
+        </div>
+        <!-- <div class="login">
+            <h4>User login</h4>
+            <p>enter your details to sign in to your account</p>
+           <form action="">
+            <input type="text" name="">
+            <input type="text" name="">
+            <p>new user? Sign up</p>
+            <input type="submit" value="">
+           </form>
+
+        </div> -->
+    </section>
+    <div class="userlogform">
+        <h2><b>User login</b></h2>
+        <h4>Hey! Enter your username and password to sign in to your account</h4>
+        <input type="text" name="" id="name" placeholder="Enter Email" class="field"><br>
+        <input type="password" name="" id="password" placeholder="Passcode" class="field"><br>
+
+        <input type="submit" value="Sign in" class="submit">
+    </div>
+    <div class="usersignupform">
+        <h2>User sign up</h2>
+        <form id="form">
+
+            <label for="last_name">First name</label><br>
+            <input type="text" name="first_name" id="first_name" placeholder="First name" class="field"><br>
+
+            <label for="last_name">Last name</label><br>
+            <input type="text" name="last_name" id="last_name" placeholder="Last name" class="field"><br>
+            
+            <label for="emp_id">Employee ID</label>
+            <input type="text" name="emp_id" id="emp_id" class="field" placeholder="Your ID">
+
+            <label for="gender">Gender</label><br>
+            <select name="gender_id" id="gender_id" class="field" name="gender_id">
+                <option value="21">Female</option>
+                <option value="22">Male</option>
+                <option value="23">Other</option>
+            </select><br>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" id="dob" class="field"><br>
+
+            <label for="designation">Designation</label>
+            <input type="text" name="designation" id="designation" class="field"><br>
+
+            <label for="emp_mail">Email</label><br>
+            <input type="text" name="emp_mail" id="emp_mail" class="field"><br>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="passcode" class="field">
+
+            <label for="joining_date">Joining Date</label>
+            <input type="date" name="joining_date" id="joining_date" class="field" ><br>
+
+            <label for="dept_id">Department</label><br>
+            <select name="dept_id" id="dept_id" class="field">
+                <option value="11">finance</option>
+                <option value="12">HR</option>
+                <option value="13">Admin</option>
+                <option value="14">IT Services</option>
+                <option value="15">Product development</option>
+                <option value="16">sales and marketing</option>
+                <option value="17">other</option>
+            </select><br>
+
+        <div class="sub">
+            <button type="submit" class="submit">Submit</button>
+        </div>
+        </form>
+
+        </div>
+<!-- 
+        <input type="text" id="d" name="input" placeholder="YYYY-MM-DD" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])/(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])/(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" title="Enter a date in this format YYYY/MM/DD"/> -->
+
+    <button onclick="myfun()">click me</button>
+
+    <button id="fetchdata">FETCH</button>
+    <div id="result"></div>
+
+
+
+
+
+
+
+
+
+
+    <div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
