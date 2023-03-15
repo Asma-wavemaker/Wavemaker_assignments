@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Application</title>
+    <link rel="stylesheet" href="leave.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>M<span>odern</span> </h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profil">
+                <div class="profile-img bg-img" id="profil" style="background-image: url(images/logo.jpg)"></div>
+                <h5>WaveMaker</h5>
+            </div>
+
+            <div class="side-menu">
+                <ul id="ulnav">
+                    <li class="m-0 p-0" id="m1" onclick="dashboard()">
+                       <a href="" class="active " id="m1a" >
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li id="m2" onclick="profile()">
+                       <a href="#" id="m2a">
+                            <span class="las la-user-alt" ></span>
+                            <small>Profile</small>
+                        </a>
+                    </li>
+                    <li id="m3">
+                       <a href="#" class="m3" id ="lhistory" onclick="getLeave()" >
+                            <span class="las la-tasks" id="m3" ></span>
+                            <small>Leave History</small>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div>
+            <header>
+                <div class="header-content">
+                    <label for="menu-toggle">
+                        <span class="las la-bars" onclick="logonone()"></span>
+                    </label>
+                    
+                    <div class="header-menu">
+                        <div class="notify-icon">
+                            <span class="las la-bell"></span>
+                            <span class="notify">3</span>
+                        </div>
+                        
+                        <div class="user">
+                            <span id="username"></span>
+                            <span class="las la-power-off"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="main" id="mainpage">
+            <div class="apply">
+                <button class="leave" onclick="applyLeave()">Apply Leave</button>
+            </div>
+            <div class="main1 w-75 mx-auto p-4 rounded-3" id="main1">
+                <div class="leavetype d-flex flex-wrap justify-content-around m-5">
+                    <div class="card mb-3" style="width: 14rem;">
+                        <div class="card-body">
+                        <h5 class="card-title py-3"><b>Compensatory</b></h5>
+                        <p class="card-text fw-bold" id="compensatory">0</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="width: 14rem;">
+                        <div class="card-body">
+                        <h5 class="card-title py-3"><b>Loss of pay</b></h5>
+                        <p class="card-text fw-bold " id="lossofpay">0</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="width: 14rem;">
+                        <div class="card-body">
+                        <h5 class="card-title py-3"><b>Personal time off</b></h5>
+                        <p class="card-text fw-bold" id="personaltimeoff">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3 w-75  mx-auto">
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header " id="flush-headingOne">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                           <b> Holidays List</b>
+                        </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <table class="w-100">
+                                <thead class="py-5">
+                                    <th>Festival</th>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ugadi</td>
+                                        <td>2023-03-22</td>
+                                        <td>Monday</td>
+                                    </tr>
+                                </tbody>
+                            
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="main2" id="main2">
+                <div class ="profile w-75 mx-auto rounded-3" style="background-color:rgb(249, 241, 230) ">
+                    <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+                        <div class="ab-pane fade show active" >
+                            <h3 class="mb-4">Employee Account Details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>First Name</label>
+                                          <input type="text" class="form-control" value="first_name" id="fn" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>Last Name</label>
+                                          <input type="text" class="form-control" value="last_name" id="ln" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>Email</label>
+                                          <input type="text" class="form-control" value="kiranacharya287@gmail.com" id="ema" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>Designation</label>
+                                          <input type="text" class="form-control" value="UI Developer" id="des" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>Gender</label>
+                                          <input type="text" class="form-control" value="UI Developer" id="gen" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                          <label>DOB</label>
+                                          <input type="text" class="form-control" value="UI Developer" id="dob" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="main3 w-75 mx-auto rounded-3" id="main3">
+                <h3 class="px-5 pt-5 ">Employee Leave History</h3>
+                <table class="leavehistory">
+                    <tr class="theading">
+                        <th>LeaveID</th>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                    <tbody id="myleaves">
+                        
+                    </tbody>
+                </table>
+                
+            
+            </div>
+    </div>
+    <div class="leaveapply" id="leaveapplyform">
+        
+        <button class="close" id="close" >X</button>
+        <form id="leave" >
+            
+            <label for="emp_id" class="formtop mt-5">Employee ID *</label><br>
+            <input type="number" name="emp_id" id="emp_id" class="field" placeholder="your ID" ><br>
+
+            <label for="leave_type_id">Leave type *</label><br>
+            <select name="leave_type_id" id="leave_type_id" class="field" name="leave_type_id">
+                <option> select leave type</option>
+                <option value="1">compensatory</option>
+                <option value="2">loss of pay</option>
+                <option value="3">Personal time off</option>
+            </select><br>
+
+            <label for="from_date">From *</label><br>
+            <input type="date" name="from_date" id="from_date" class="field" min="2023-03-22"><br>
+
+            <label for="to_date">To *</label><br>
+            <input type="date" name="to_date" id="to_date" class="field" min="2023-03-22" onclick="setToDate()"><br>
+
+            <label for="comments">Comments</label><br>
+            <textarea name="comments" id="comments" cols="30" rows="3" class="field"></textarea><br>
+
+            <div class="sub">
+                <button type="submit" class="leave">Apply</button>
+            </div>
+        </form>
+    </div>
+
+
+
+<script>
+
+function test(){
+
+
+fetch('http://localhost:8080/NewLeaveProject/leave/',{
+        method: 'GET'
+      })
+
+        .then(res => res.json())
+        .then(data => {
+        //   console.log(data);
+            var compensatory=0;
+            var personaltimeoff=0;
+            var lossofpay=0;
+          data.forEach((repo) => {
+            // console.log(repo)
+            Object.entries(repo).forEach(([key, value]) => {
+
+              if((key=="emp_id" & value == emp_id))
+              {
+                // console.log(repo["emp_id"]);
+                if(repo["leave_type_id"]==1)
+                    {   
+                        compensatory++;
+                        document.getElementById('compensatory').innerText=compensatory;
+                    }
+                 else if(repo["leave_type_id"]==2){
+                        lossofpay++;
+                        document.getElementById('lossofpay').innerText=lossofpay;
+                 }   
+                 else{
+                    personaltimeoff++;
+                    document.getElementById('personaltimeoff').innerText=personaltimeoff;
+                 }
+                
+              }
+
+            });
+          });
+           
+        })
+        .catch(error => console.log(error))
+    }
+       
+    test();
+
+
+    function dashboard(){
+
+    }
+    $(".side-menu ul li a").on('click',function(){
+            $(".side-menu ul li a.active").removeClass('active');
+            $(this).addClass('active');
+        })
+
+
+
+
+
+    const leave = document.getElementById('leave');
+
+    leave.addEventListener('submit',function(e){
+        e.preventDefault();
+        const formData = new FormData(leave);
+        let formDataObject = Object.fromEntries(formData.entries());
+        let formDataJsonString = JSON.stringify(formDataObject);
+        console.log(formDataJsonString);
+
+        fetch('http://localhost:8080/NewLeaveProject/leave',{
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            
+            },
+            body: formDataJsonString
+        
+        })
+        .then(res =>{
+            if(res.ok)
+                alert("success");
+            else
+                alert("failed");
+            res.json()
+        })
+        .then(data => console.log(data))
+        .then(leaveform.style.display='none')
+        .then(mainpage.style.opacity=1)
+        .catch(err => console.log(err));
+    })
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+   <script src="leave.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <label for="month_id">Month *</label><br>
+<select name="month_id" id="month_id" class="field" name="month_id">
+    <option>select month</option>
+    <option value="51">January</option>
+    <option value="52">February</option>
+    <option value="53">March</option>
+    <option value="54">April</option>
+    <option value="55">May</option>
+    <option value="56">June </option>
+    <option value="57">July </option>
+    <option value="58">August</option>
+    <option value="59">September</option>
+    <option value="60">October</option>
+    <option value="61">November </option>
+    <option value="62">December </option>
+</select><br> -->

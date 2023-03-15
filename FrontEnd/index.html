@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <nav class="nav">
+            <label class="logo"><a href="#" onclick="homee()">Logo</a> </label>
+            <ul>
+                <li><a href="#" onclick="userloginpage()"> Login<i class="fa fa-fw fa-user"></i></a></li>
+                <li><a href="#"  onclick="usersignuppage()"> Sign Up<i class="fa fa-fw fa-user"></i></a></li>
+            </ul>
+        </nav>
+        <div class="home" id="home">
+            <div class="left">
+                <h2>Fastest Leave approvals</h2>
+            </div>
+            <div class="right">
+                <img src="images/img2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="userlogform" id="userlogform" action="leave.html">
+        <h2><b>User login</b></h2>
+        <h4>Hey! Enter your user ID and password to sign in to your account</h4>
+            <input type="number" name="emp_id" id="logid" placeholder="Enter your Id*" class="loginid field " size="4" maxlength="4" title="4 digit num eg:1002" autocomplete="off" required><br>
+            <input type="password" name="password" id="loginpass" placeholder="Passcode*" class="field loginpass" required><br>
+            <button type="submit" class="submit" value="Sign in" id="fetchdata">Submit</button>
+    </div>
+    <div class="usersignupform" id="usersignform">
+        <h2>User sign up</h2>
+        <form id="form">
+
+            <label for="last_name" >First name *</label><br>
+            <input type="text" name="first_name" id="first_name" placeholder="First name" autocomplete="off" class="field" required ><br>
+
+            <label for="last_name">Last name *</label><br>
+            <input type="text" name="last_name" id="last_name" placeholder="Last name" autocomplete="off" class="field" required><br>
+            
+            <label for="emp_id">Employee ID *</label>
+            <input type="number" name="emp_id" id="emp_id" class="field" size="4" autocomplete="off" placeholder="Your ID" required>
+
+            <label for="gender">Gender *</label><br>
+            <select name="gender_id" id="gender_id" class="field" name="gender_id" required>
+                <option>gender</option>
+                <option value="21">Female</option>
+                <option value="22">Male</option>
+                <option value="23">Other</option>
+            </select><br>
+
+            <label for="dob">Date of Birth*</label>
+            <input type="date" name="dob" id="dob" class="field" required><br>
+
+            <label for="designation">Designation *</label>
+            <input type="text" name="designation" autocomplete="off" id="designation" class="field" required><br>
+
+            <label for="emp_mail">Email *</label><br>
+            <input type="email" name="emp_mail" id="emp_mail" autocomplete="off" class="field" required><br>
+
+            <label for="password">Password *</label>
+            <input type="password" name="password" id="passcode" class="field" required>
+
+            <label for="joining_date">Joining Date *</label>
+            <input type="date" name="joining_date" id="joining_date" class="field" required><br>
+
+            <label for="dept_id">Department *</label><br>
+            <select name="dept_id" id="dept_id" class="field" required>
+                <option>department</option>
+                <option value="11">finance</option>
+                <option value="12">HR</option>
+                <option value="13">Admin</option>
+                <option value="14">IT Services</option>
+                <option value="15">Product development</option>
+                <option value="16">sales and marketing</option>
+                <option value="17">other</option>
+            </select><br>
+
+        <div class="sub">
+            <button type="submit" class="submit">Submit</button>
+        </div>
+        </form>
+
+        </div>
+
+        
+
+    <script>
+        var userlogform = document.getElementById('userlogform');
+        var usersignupform = document.getElementById('usersignform');
+        var home=document.getElementById('home');
+        userlogform.style.display="none";
+        usersignupform.style.display="none";
+        function userloginpage(){
+            userlogform.style.display="block";
+            usersignupform.style.display="none";
+            home.style.opacity=0.1;
+
+        }
+        function usersignuppage(){
+            userlogform.style.display="none";
+            usersignupform.style.display="block";
+            home.style.opacity=0.1;
+        }
+        function homee(){
+            console.log("home");
+            home.style.opacity=1;
+            userlogform.style.display="none";
+            usersignupform.style.display="none";
+        }
+
+
+        // submit form on hitting enter
+        $('input').keydown(function(e) {
+            if (e.keyCode == 13) {
+                $(this).closest('userlogform').submit();
+            }
+        });
+
+    </script>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
