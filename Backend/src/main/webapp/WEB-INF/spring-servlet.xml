@@ -28,6 +28,7 @@
             <list>
                 <value>com.model.Employee</value>
                 <value>com.model.Leave</value>
+                <value>com.model.Holiday</value>
             </list>
         </property>
         <property name="hibernateProperties" >

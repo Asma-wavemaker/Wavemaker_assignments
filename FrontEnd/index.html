@@ -8,34 +8,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
     <div>
         <nav class="nav">
-            <label class="logo"><a href="#" onclick="homee()">Logo</a> </label>
+            <label class="logo"><a href="#" onclick="homee()">Modern</a> </label>
             <ul>
-                <li><a href="#" onclick="userloginpage()"> Login<i class="fa fa-fw fa-user"></i></a></li>
-                <li><a href="#"  onclick="usersignuppage()"> Sign Up<i class="fa fa-fw fa-user"></i></a></li>
+                <li><a href="#" onclick="userloginpage()" class="log"> Login<i class="fa fa-fw fa-user"></i></a></li>
+                <li><a href="#"  onclick="usersignuppage()" class="log"> Sign Up<i class="fa fa-fw fa-user"></i></a></li>
             </ul>
         </nav>
         <div class="home" id="home">
             <div class="left">
-                <h2>Fastest Leave approvals</h2>
+                <h2>Get the Fastest Leave applications done in no time
+                    <i class="las la-business-time time"></i>
+                </h2>
             </div>
             <div class="right">
-                <img src="images/img2.png" alt="">
+                <!-- <img src="images/img2.png" alt=""> -->
+                <img src="images/leave4.png" alt="img">
             </div>
         </div>
     </div>
+    <div class="bluecircle"></div>
     <div class="userlogform" id="userlogform" action="leave.html">
         <h2><b>User login</b></h2>
+        <button class="close m-1" id="close" >X</button>
         <h4>Hey! Enter your user ID and password to sign in to your account</h4>
-            <input type="number" name="emp_id" id="logid" placeholder="Enter your Id*" class="loginid field " size="4" maxlength="4" title="4 digit num eg:1002" autocomplete="off" required><br>
+        <form >
+            <input type="number" name="emp_id" id="logid" placeholder="Enter your Id*" class="loginid field " autocomplete="off" required ><br>
             <input type="password" name="password" id="loginpass" placeholder="Passcode*" class="field loginpass" required><br>
             <button type="submit" class="submit" value="Sign in" id="fetchdata">Submit</button>
+        </form>
     </div>
     <div class="usersignupform" id="usersignform">
-        <h2>User sign up</h2>
+        <h2 >User sign up</h2>
+        <button class="close m-1" id="closebtn" >X</button>
         <form id="form">
 
             <label for="last_name" >First name *</label><br>
@@ -45,7 +56,7 @@
             <input type="text" name="last_name" id="last_name" placeholder="Last name" autocomplete="off" class="field" required><br>
             
             <label for="emp_id">Employee ID *</label>
-            <input type="number" name="emp_id" id="emp_id" class="field" size="4" autocomplete="off" placeholder="Your ID" required>
+            <input type="number" name="emp_id" id="emp_id" class="field" size="4" autocomplete="off" placeholder="Your ID" required><br>
 
             <label for="gender">Gender *</label><br>
             <select name="gender_id" id="gender_id" class="field" name="gender_id" required>
@@ -65,9 +76,9 @@
             <input type="email" name="emp_mail" id="emp_mail" autocomplete="off" class="field" required><br>
 
             <label for="password">Password *</label>
-            <input type="password" name="password" id="passcode" class="field" required>
+            <input type="password" name="password" id="passcode" class="field" required><br>
 
-            <label for="joining_date">Joining Date *</label>
+            <label for="joining_date">Joining Date *</label><br>
             <input type="date" name="joining_date" id="joining_date" class="field" required><br>
 
             <label for="dept_id">Department *</label><br>
@@ -83,7 +94,7 @@
             </select><br>
 
         <div class="sub">
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" class="submit" >Submit</button>
         </div>
         </form>
 
@@ -123,21 +134,19 @@
             }
         });
 
-    </script>
-
-
-
+        home=document.getElementById('home');
+        document.getElementById('close').addEventListener('click',function(){
+        userlogform.style.display='none';
+        usersignupform.style.display='none'
+        home.style.opacity=1;
+    })
+    document.getElementById('closebtn').addEventListener('click',function(){
+        userlogform.style.display='none';
+        usersignupform.style.display='none'
+        home.style.opacity=1;
+    })
         
-
-
-
-
-
-
-
-
-
-
+    </script>
 
 
 

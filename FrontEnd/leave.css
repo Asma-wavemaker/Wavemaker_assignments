@@ -15,6 +15,7 @@
     font-family: 'Merriweather', sans-serif;
 }
 
+
 #menu-toggle {
     display: none;
 }
@@ -22,7 +23,7 @@
 .sidebar {
     position: fixed;
     height: 100%;
-    width: 140px;
+    width: 160px;
     left: 0;
     bottom: 0;
     top: 0;
@@ -45,13 +46,13 @@
 }
 
 .side-content {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px);
     overflow: auto;
 }
 
 /* width */
 .side-content::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 /* Track */
@@ -102,12 +103,12 @@
 
 .side-menu ul {
     text-align: center;
-   padding: 0;
+    padding: 0;
 }
 .side-menu a {
     width: 100%;
     display: block;
-    padding: 1.2rem 0rem;
+    padding: .6rem 0rem;
     text-decoration: none;
 }
 
@@ -146,22 +147,25 @@
     left: 60px;
 }
 
+
 #menu-toggle:checked ~ .sidebar .profil,
 #menu-toggle:checked ~ .sidebar .side-menu a small {
     display: none;
 }
+
 
 #menu-toggle:checked ~ .sidebar .side-menu a span {
     font-size: 1.3rem;
 }
 
 .main-content {
-    margin-left: 143px;
+    margin-left: 149px;
+    /* background-color: #899DC1; */
     width: calc(100% - 149px);
     transition: margin-left 300ms;
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 header {
@@ -186,6 +190,7 @@ header {
 .header-content {
     justify-content: space-between;
     padding: 0rem 1rem;
+    line-height: 62px;
 }
 
 .header-content label:first-child span {
@@ -198,7 +203,10 @@ header {
 
 .header-menu {
     justify-content: flex-end;
-    padding-top: .7rem;
+
+}
+.menu-toggle{
+    padding-top: 1.5rem;
 }
 
 .header-menu label,
@@ -207,27 +215,10 @@ header {
     position: relative;
 }
 
-.header-menu label span,
+.header-menu label span,.header-menu span,.la-user-circle,
 .notify-icon span:first-child {
     font-size: 1.3rem;
 }
-
-.notify-icon span:last-child {
-    position: absolute;
-    background:#04040b;
-    height: 16px;
-    width: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    right: -5px;
-    top: -5px;
-    color: #fff;
-    font-size: .8rem;
-    font-weight: 500;
-}
-
 .user {
     display: flex;
     align-items: center;
@@ -244,6 +235,17 @@ header {
     margin-left: .3rem;
     font-size: 1rem;
 }
+.updatepasssubmit{
+    border: none;
+    background-color: #4b56cf;
+    color: #ffffff;
+    font-weight: 600;
+}
+.updatepasssubmit:hover{
+    background-color: #a2a7e6;
+    color: #252121;
+    font-weight: 600;
+}
 .main{
     display: flex;
     flex-direction: column;
@@ -252,9 +254,9 @@ header {
 .main1{
     text-align: center;
 }
-.main1,.main3{
+/* .main1,.main3,.profile{
     background-color: rgb(249, 241, 230);
-}
+} */
 .holidays{
     background-color: rgb(249, 241, 230);
 }
@@ -274,42 +276,58 @@ header {
 .close{
     position: absolute;
     right: 2px;
-    padding: 5px 12px;
-    background-color: #a97b79;
+    padding:3px 12px;
+    background-color: #4b56cf;
     border: 2px;
     cursor:pointer;
     border-radius: 15%;
     font-weight: 600;
-    color: #f9f8f8;
+    color: #ffffff;
 }
 .leave{
     padding: 6px 21px;
     border: none;
-    background-color: #4b56cf;
+    color: #fcfcfc;
     border-radius: 2px;
-    margin-top: 5%;
     cursor: pointer;
     font-weight: 600;
     float:right;
-    margin: 4%;
-    margin-right: 0%;
-    margin-top: 0%;
-    color: #fcfcfc;   
+    background-color: #4b56cf;   
+}
+.leaveheading{
+    color:#000000;
 }
 .leaveapply{
     position: absolute;
-    background-color: #B0B0B0;
+    background-color: rgb(249, 241, 230);
+    /* color:#fff; */
     top:18%;
-    left:30%;
+    left:25%;
     padding: 0px 20px;
     width: 50%;
     margin: auto;
-    background-color: rgb(252, 247, 241);
     margin-bottom: 2%;
     border-radius: 15px;
 }
+.leaveap{
+    padding: 6px 21px;
+    border: none;
+    color: #4b56cf;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 600;
+    float:right;
+    background-color: #4b56cf;
+    color:#fff;
+}
+.card,.accordion-item {
+    outline: 1px solid #4b56cf;
+}
+.card:hover{
+    background-color: #edefff;
+}
 .field{
-    border: 2px solid rgb(231, 230, 230);
+    border: 1px solid #4b56cf;
     padding: 11px 17px;
     margin:2% 0%;
     width: 98%;
@@ -324,9 +342,10 @@ header {
     margin-bottom: 5%;
     font-size: 0.9em;
     border-radius: 15px;
+    border:1px solid #4b56cf;
     box-shadow: 0 0 20px rgb(0 0 0 10);
     padding: 5px;
-    width: 75%;
+    width: 90%;
 }
 .theading{
     background-color: #4b56cf;
@@ -349,6 +368,9 @@ header {
 }
 .leavehistory tbody tr:last-of-type{
     border-bottom :2px solid #4b56cf;
+}
+.main{
+    background-color: #fff;
 }
 @media only screen and (max-width: 1200px) {
 
@@ -397,6 +419,11 @@ header {
     }
     
 }
+.btns{
+    background-color: #4b56cf;
+    color: #ffffff;
+    font-weight: 600;
+}
 
 
 
@@ -408,4 +435,45 @@ header {
 
 
 
-
+/* 
+:root {
+    --main-color: #ecf0f1;
+    --point-color: #555;
+    --size: 5px;
+  }
+  
+  .loader {
+      background-color: var(--main-color);
+      overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center;  
+      z-index: 100000;
+  }
+  
+  .loader__element {
+    border-radius: 100%;
+    border: var(--size) solid var(--point-color);
+    margin: calc(var(--size)*2);
+  }
+  
+  .loader__element:nth-child(1) {
+    animation: preloader .6s ease-in-out alternate infinite;
+  }
+  .loader__element:nth-child(2) {
+    animation: preloader .6s ease-in-out alternate .2s infinite;
+  }
+  
+  .loader__element:nth-child(3) {
+    animation: preloader .6s ease-in-out alternate .4s infinite;
+  }
+  
+  @keyframes preloader {
+    100% { transform: scale(2); }
+  } */
+  

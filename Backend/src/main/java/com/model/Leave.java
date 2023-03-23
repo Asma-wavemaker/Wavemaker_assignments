@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "leaves")
@@ -27,16 +27,6 @@ public class Leave {
     @Column(name="comments")
     private String comments;
 
-//    @Column(name="month_id")
-//    private int month_id;
-
-//    public int getMonth_id() {
-//        return month_id;
-//    }
-//
-//    public void setMonth_id(int month_id) {
-//        this.month_id = month_id;
-//    }
 
     public int getLeave_id() {
         return leave_id;

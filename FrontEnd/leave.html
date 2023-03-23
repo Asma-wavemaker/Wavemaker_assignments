@@ -9,8 +9,15 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
 </head>
 <body>
+    <!-- <div class="loader">
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+      </div> -->
+    <div class="page" id="page">
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
@@ -25,22 +32,23 @@
 
             <div class="side-menu">
                 <ul id="ulnav">
-                    <li class="m-0 p-0" id="m1" onclick="dashboard()">
-                       <a href="" class="active " id="m1a" >
-                            <span class="las la-home"></span>
-                            <small>Dashboard</small>
+                    <li class="m-0 p-0" id="m1" onclick="test()" >
+                       <a href="#" class="active " id="m1a" >
+                        <div><span class="las la-home px-2"></span></div>
+                        <div><small>Dashboard</small></div>
+                            
                         </a>
                     </li>
                     <li id="m2" onclick="profile()">
                        <a href="#" id="m2a">
-                            <span class="las la-user-alt" ></span>
-                            <small>Profile</small>
+                        <div><span class="las la-user-alt px-2" ></span></div>
+                        <div><small>Profile</small></div>   
                         </a>
                     </li>
                     <li id="m3">
                        <a href="#" class="m3" id ="lhistory" onclick="getLeave()" >
-                            <span class="las la-tasks" id="m3" ></span>
-                            <small>Leave History</small>
+                            <div><span class="las la-history" id="m3" ></span></div>
+                            <div><small>Leave History</small></div>
                         </a>
                     </li>
 
@@ -53,18 +61,18 @@
             <header>
                 <div class="header-content">
                     <label for="menu-toggle">
-                        <span class="las la-bars" onclick="logonone()"></span>
+                        <span class="las la-angle-double-left" id="togglearrow" onclick="iconchange()"></span>
                     </label>
                     
                     <div class="header-menu">
-                        <div class="notify-icon">
+                        <!-- <div class="notify-icon">
                             <span class="las la-bell"></span>
                             <span class="notify">3</span>
-                        </div>
+                        </div> -->
                         
                         <div class="user">
                             <span id="username"></span>
-                            <span class="las la-power-off"></span>
+                            <span class="las la-user-circle "></span>
                             
                         </div>
                     </div>
@@ -73,25 +81,29 @@
         </div>
         <div class="main" id="mainpage">
             <div class="apply">
-                <button class="leave" onclick="applyLeave()">Apply Leave</button>
+                <button class="leaveap mx-3 my-2" onclick="applyLeave()">Apply Leave</button>
             </div>
             <div class="main1 w-75 mx-auto p-4 rounded-3" id="main1">
+                <!-- <h3 class="px-5 pt-5 ">Dashboard</h3> -->
                 <div class="leavetype d-flex flex-wrap justify-content-around m-5">
                     <div class="card mb-3" style="width: 14rem;">
                         <div class="card-body">
                         <h5 class="card-title py-3"><b>Compensatory</b></h5>
+                        <h4>CO</h4>
                         <p class="card-text fw-bold" id="compensatory">0</p>
                         </div>
                     </div>
                     <div class="card mb-3" style="width: 14rem;">
                         <div class="card-body">
-                        <h5 class="card-title py-3"><b>Loss of pay</b></h5>
+                        <h5 class="card-title py-3"><b>Loss of pay </b></h5>
+                        <h2><i class="las la-sync"></i></h2>
                         <p class="card-text fw-bold " id="lossofpay">0</p>
                         </div>
                     </div>
                     <div class="card mb-3" style="width: 14rem;">
                         <div class="card-body">
-                        <h5 class="card-title py-3"><b>Personal time off</b></h5>
+                        <h5 class="card-title py-3"><b>Personal time off </b></h5>
+                        <h2><b><i class="las la-snowboarding"></i></b></h2>
                         <p class="card-text fw-bold" id="personaltimeoff">0</p>
                         </div>
                     </div>
@@ -112,12 +124,7 @@
                                     <th>Date</th>
                                     <th>Day</th>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Ugadi</td>
-                                        <td>2023-03-22</td>
-                                        <td>Monday</td>
-                                    </tr>
+                                <tbody id="holidayslist">
                                 </tbody>
                             
                             </table>
@@ -128,49 +135,101 @@
 
             </div>
             <div class="main2" id="main2">
-                <div class ="profile w-75 mx-auto rounded-3" style="background-color:rgb(249, 241, 230) ">
+                <div class ="profile w-75 mx-auto rounded-3" >
                     <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
                         <div class="ab-pane fade show active" >
-                            <h3 class="mb-4">Employee Account Details</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>First Name</label>
-                                          <input type="text" class="form-control" value="first_name" id="fn" readonly="readonly">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>Last Name</label>
-                                          <input type="text" class="form-control" value="last_name" id="ln" readonly="readonly">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>Email</label>
-                                          <input type="text" class="form-control" value="kiranacharya287@gmail.com" id="ema" readonly="readonly">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>Designation</label>
-                                          <input type="text" class="form-control" value="UI Developer" id="des" readonly="readonly">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>Gender</label>
-                                          <input type="text" class="form-control" value="UI Developer" id="gen" readonly="readonly">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                          <label>DOB</label>
-                                          <input type="text" class="form-control" value="UI Developer" id="dob" readonly="readonly">
-                                    </div>
+                            <div class="d-flex justify-content-between mb-4">
+                                <div><h3 class="mb-4">Employee Account Details</h3></div>
+                                <div>
+                                    <button class="border-0 px-4 py-1 mx-3 rounded btns" onclick="enableEdit()">
+                                    Edit <span class="las la-edit"></span>
+                                    </button>
                                 </div>
                             </div>
+                            <div class="row">
+                               
+                                <div class="col-md-6 ">
+                                    <div class="form-group mb-4">
+                                          <label>First Name</label>
+                                          <input type="text" class="form-control" value="first_name" id="fn" readonly="readonly" name="first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                          <label>Last Name</label>
+                                          <input type="text" name="last_name" class="form-control" value="last_name" id="ln" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                          <label>Email</label>
+                                          <input type="text" name="emp_mail" class="form-control" value="value@gmail.com" id="ema" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                          <label>Designation</label>
+                                          <input type="text" name="designation" class="form-control" value="UI Developer" id="des" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                          <label>Gender</label>
+                                          <select name="gender_id" name="gender_id" class="form-control" value="UI Developer" id="gen" readonly="readonly" >
+                                            <option>gender</option>
+                                            <option value="21">Female</option>
+                                            <option value="22">Male</option>
+                                            <option value="23">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                          <label>DOB</label>
+                                          <input type="text" name="dob" class="form-control" value="" id="dob" readonly="readonly">
+                                    </div>
+                                </div>
+                            
+                            </div>
             
+                        </div>
+                        <div class="d-flex mx-auto justify-content-between mt-5 ">
+                            <div>
+                                <button class="submit border-0 px-4 py-1 mx-3 btns rounded text-center" onclick="getUserDetailsToEdit()">
+                                    Submit  <span class="las la-arrow-circle-right"></span>
+                                  </button>
+                            </div>
+                        </div>
+
+
+                        <hr class="my-5">
+
+                        <div class="ab-pane fade show active mt-5" >
+                            <h3 class="mb-4">Update Password</h3>
+
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <div class="form-group mb-3">
+                                            <label>Current Password</label>
+                                            <input type="password" class="form-control"  placeholder="current " id="cp" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label>New Password</label>
+                                            <input type="password" class="form-control"  placeholder="new" id="np" >
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <input type="submit" class=" py-2 rounded-2 form-group px-4 updatepasssubmit"  value="Update" id="sub" onclick="checkCurrentPassword()">
+                                    </input>
+                                    </div>
+
+                                </div>
+                           
+                            
+
                         </div>
                     </div>
                 </div>
@@ -180,7 +239,7 @@
                 <h3 class="px-5 pt-5 ">Employee Leave History</h3>
                 <table class="leavehistory">
                     <tr class="theading">
-                        <th>LeaveID</th>
+                        <th>LeaveType</th>
                         <th>From</th>
                         <th>To</th>
                     </tr>
@@ -192,42 +251,87 @@
             
             </div>
     </div>
-    <div class="leaveapply" id="leaveapplyform">
+</div>
+</div>
+<div class="leaveapply p-2" id="leaveapplyform">
         
-        <button class="close" id="close" >X</button>
-        <form id="leave" >
-            
-            <label for="emp_id" class="formtop mt-5">Employee ID *</label><br>
-            <input type="number" name="emp_id" id="emp_id" class="field" placeholder="your ID" ><br>
+    <button class="close m-1" id="close" >X</button>
+    <h2 class="text-center mb-3 leaveheading">Leave application</h2>
+    <form id="leave" class="mx-3">
+        
 
-            <label for="leave_type_id">Leave type *</label><br>
-            <select name="leave_type_id" id="leave_type_id" class="field" name="leave_type_id">
-                <option> select leave type</option>
-                <option value="1">compensatory</option>
-                <option value="2">loss of pay</option>
-                <option value="3">Personal time off</option>
-            </select><br>
-
-            <label for="from_date">From *</label><br>
-            <input type="date" name="from_date" id="from_date" class="field" min="2023-03-22"><br>
-
-            <label for="to_date">To *</label><br>
-            <input type="date" name="to_date" id="to_date" class="field" min="2023-03-22" onclick="setToDate()"><br>
-
-            <label for="comments">Comments</label><br>
-            <textarea name="comments" id="comments" cols="30" rows="3" class="field"></textarea><br>
-
-            <div class="sub">
-                <button type="submit" class="leave">Apply</button>
+        <input type="number" name="emp_id" id="emp_id" class="field" placeholder="your ID" hidden ><br>
+        <div class="bloc d-flex flex-row">
+            <div class="frombloc w-50">
+                <label for="from_date">From *</label>
+                <input type="date" name="from_date" id="from_date" class="field" min="2023-03-22" >
             </div>
-        </form>
-    </div>
+            <div class="tobloc w-50">
+                <label for="to_date">To *</label>
+                <input type="date" name="to_date" id="to_date" class="field" min="2023-03-22"  onclick="setToDate()">
+            </div>
+        </div>
+
+        <label for="leave_type_id">Leave type *</label><br>
+        <select name="leave_type_id" id="leave_type_id" class="field" name="leave_type_id">
+            <option> select leave type</option>
+            <option value="1">compensatory</option>
+            <option value="2">loss of pay</option>
+            <option value="3">Personal time off</option>
+        </select><br>
+
+        <label for="comments">Comments</label><br>
+        <textarea name="comments" id="comments" cols="30" rows="3" class="field"></textarea><br>
+
+        <div class="sub">
+            <button type="submit" class="leave">Apply</button>
+        </div>
+    </form>
+</div>
 
 
+
+
+    
 
 <script>
 
+    
+
+    // sweetalert
+
+
+
+
+
+
+
+
+
+//                            ------Manage TOGGLE arrow-----
+
+
+function iconchange(){
+    var rarrow="las la-angle-double-left"
+    var y =  $("span").hasClass(rarrow);
+    console.log(y);
+    if(y)
+    document.getElementById('togglearrow').setAttribute("class","las la-angle-double-right");
+    else
+    document.getElementById('togglearrow').setAttribute("class","las la-angle-double-left");
+}
+
+
+
+
+//                      ------GET LEAVES DATA-------
+
 function test(){
+
+        document.getElementById("main2").style.display = "none";
+        document.getElementById("main3").style.display = "none";
+        document.getElementById("main1").style.display="block";
+
 
 
 fetch('http://localhost:8080/NewLeaveProject/leave/',{
@@ -246,7 +350,6 @@ fetch('http://localhost:8080/NewLeaveProject/leave/',{
 
               if((key=="emp_id" & value == emp_id))
               {
-                // console.log(repo["emp_id"]);
                 if(repo["leave_type_id"]==1)
                     {   
                         compensatory++;
@@ -273,9 +376,8 @@ fetch('http://localhost:8080/NewLeaveProject/leave/',{
     test();
 
 
-    function dashboard(){
+    //          -------SIDE NAV TOGGLE-------
 
-    }
     $(".side-menu ul li a").on('click',function(){
             $(".side-menu ul li a.active").removeClass('active');
             $(this).addClass('active');
@@ -283,76 +385,55 @@ fetch('http://localhost:8080/NewLeaveProject/leave/',{
 
 
 
+    //------testing post 
+
+//     leave.addEventListener('submit',function(e){
+//     var myHeaders = new Headers();
+// myHeaders.append("Content-Type", "application/json");
+// var empId = document.getElementById('emp_id').value;
+// var leave_type_id = document.getElementById('leave_type_id').value;
+// var from_date = document.getElementById('from_date').value;
+// var to_date  = document.getElementById('to_date').value;
+// var comments = document.getElementById('comments').value;
 
 
-    const leave = document.getElementById('leave');
 
-    leave.addEventListener('submit',function(e){
-        e.preventDefault();
-        const formData = new FormData(leave);
-        let formDataObject = Object.fromEntries(formData.entries());
-        let formDataJsonString = JSON.stringify(formDataObject);
-        console.log(formDataJsonString);
+// var raw = JSON.stringify({
+//   "emp_id":empId ,
+//   "leave_type_id": leave_type_id,
+//   "from_date": "Mar 14, 2023",
+//   "to_date": "Mar 14, 2023",
+//   "comments": comments
+// });
 
-        fetch('http://localhost:8080/NewLeaveProject/leave',{
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            
-            },
-            body: formDataJsonString
-        
-        })
-        .then(res =>{
-            if(res.ok)
-                alert("success");
-            else
-                alert("failed");
-            res.json()
-        })
-        .then(data => console.log(data))
-        .then(leaveform.style.display='none')
-        .then(mainpage.style.opacity=1)
-        .catch(err => console.log(err));
-    })
+// var requestOptions = {
+//   method: 'POST',
+//   headers: myHeaders,
+//   body: raw,
+//   redirect: 'follow'
+// };
 
+// fetch("http://localhost:8080/NewLeaveProject/leave", requestOptions)
+//   .then(response => response.text())
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
+// })
 
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    
    <script src="leave.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>
 
 
+<!-- backup leave form -->
 
 
 
 
 
 
-
-
-
-
-
-
-<!-- <label for="month_id">Month *</label><br>
-<select name="month_id" id="month_id" class="field" name="month_id">
-    <option>select month</option>
-    <option value="51">January</option>
-    <option value="52">February</option>
-    <option value="53">March</option>
-    <option value="54">April</option>
-    <option value="55">May</option>
-    <option value="56">June </option>
-    <option value="57">July </option>
-    <option value="58">August</option>
-    <option value="59">September</option>
-    <option value="60">October</option>
-    <option value="61">November </option>
-    <option value="62">December </option>
-</select><br> -->

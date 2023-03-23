@@ -31,6 +31,8 @@ const fetchDataBtn = document.querySelector('#fetchdata')
           console.log(data);
           // result.innerText = JSON.stringify(data, null, 2)
 
+
+
 //                                VALIDATE LOGIN FORM DATA
           data.forEach((repo) => {
             Object.entries(repo).forEach(([key, value]) => {
@@ -41,19 +43,16 @@ const fetchDataBtn = document.querySelector('#fetchdata')
             });
           });
 
-          // var uname = document.getElementById('username').value;
-          // console.log(uname);
+
 
 //        fetching employee name
           empdetailsobj=data;
-          // console.log(empdetailsobj);
           data.forEach((repo) => {
             Object.entries(repo).forEach(([key, value]) => {
               if(key == "emp_id" && value ==emp_id){
               console.log(JSON.stringify(repo, null, 2));
               emp_name=repo["first_name"];
               console.log(emp_name);
-              console.log("hey");
               localStorage.setItem("emp_name",emp_name);
               
               // console.log(`${key}: ${value}`); 
@@ -80,17 +79,6 @@ const fetchDataBtn = document.querySelector('#fetchdata')
     }
     
     fetchDataBtn.addEventListener('click', getData)
-
-
-//---------------- employee data for profile
-
-
-
-
-
-
-
-
 
 
 
@@ -121,20 +109,17 @@ const fetchDataBtn = document.querySelector('#fetchdata')
         })
         .then(res =>{
           if(res.ok){
-              alert("success");
+            swal("Registration Success!");
+            home.style.opacity=1;
+            userlogform.style.display="none";
+            usersignupform.style.display="none";
           }
           else{
-              alert("failed");
+            swal("Registration failed!");
           }
           res.json()
       })
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
         .catch(err => console.log(err));
     })
-
-
-
-
-    
-
 

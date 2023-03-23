@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(value = "http://127.0.0.1:5500/")
+@CrossOrigin(value = "http://127.0.0.1:5502/")
 @RequestMapping(value = "/employee")
 public class EmployeeController {
 
@@ -36,6 +36,11 @@ public class EmployeeController {
     @PutMapping("/update")
     public Employee updateEmployee(@RequestBody Employee employee){
         return employeeService.updateEmployee(employee);
+    }
+
+    @PutMapping ("/{id}")
+    public Employee updateEmployeeById(@PathVariable ("id") int id){
+        return employeeService.updateEmployeeById(id);
     }
 
     @DeleteMapping("/{id}")

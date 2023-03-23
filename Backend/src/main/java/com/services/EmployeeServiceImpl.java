@@ -45,6 +45,15 @@ public class EmployeeServiceImpl implements EmployeeService{
         session.close();
         return employee;
     }
+    public Employee updateEmployeeById(int id){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Employee employee = session.get(Employee.class,id);
+        session.saveOrUpdate(employee);
+        transaction.commit();
+        session.close();
+        return employee;
+    }
 
     public Employee deleteEmployeeById(int id){
         Session session = sessionFactory.openSession();
